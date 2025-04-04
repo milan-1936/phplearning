@@ -1,2 +1,2 @@
 <?php
-echo "Welcome Admin";
+print_r($_SESSION["username"]);
