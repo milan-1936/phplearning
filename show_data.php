@@ -6,11 +6,32 @@ $conn = new mysqli("localhost", "root", "", "newdb");
 $result = $conn->query($query); // result vanne object
 //$type = gettype($result);
 //echo $type;
-if($result->num_rows > 0){
-    while($row = $result->fetch_assoc()){ //abstraction
-        echo "<tr>";
-        echo "<td>".$row["name"]."</td>";
-        echo "<td>". $row["address"]."</td>";
-        echo "</tr>";
-    }
-}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>
+        Sabai Ko Data Fetch Gareko
+    </title>
+</head>
+<body>
+    <h1>Sabai Jana ko Data Yaha xa</h1>
+    <table >
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+        </tr>
+        <?php
+        if($result->num_rows > 0){
+            while($row = $result->fetch_assoc()){//abstractions
+                echo "<tr>";
+               echo "<td>" .$row["name"]. "</td>";
+                echo "<td>". $row["address"]. "</td>";
+                echo "</tr>";
+            }
+        }
+        ?>
+    </table>
+</body>
+</html>
