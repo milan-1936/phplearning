@@ -17,15 +17,15 @@ $result = $conn->query($query); // result vanne object
 </head>
 <body>
     <h1>Sabai Jana ko Data Yaha xa</h1>
-    <table >
-        <tr>
+    <table class="table w-full">
+        <tr class = "bg-slate-600 text-white">
             <th>Name</th>
             <th>Address</th>
         </tr>
         <?php
         if($result->num_rows > 0){
             while($row = $result->fetch_assoc()){//abstractions
-                echo "<tr>";
+                echo "<tr class ='even:bg-slate-200 border border-slate-200'>";
                echo "<td>" .$row["name"]. "</td>";
                 echo "<td>". $row["address"]. "</td>";
                 echo "</tr>";
