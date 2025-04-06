@@ -1,0 +1,83 @@
+Initially your php.ini file should look like this
+
+{
+    [mail function]
+
+; For Win32 only.
+; https://php.net/smtp
+SMTP=localhost
+; https://php.net/smtp-port
+smtp_port=25
+
+; For Win32 only.
+; https://php.net/sendmail-from
+;sendmail_from = me@example.com
+
+; For Unix only.  You may supply arguments as well (default: "sendmail -t -i").
+; https://php.net/sendmail-path
+;sendmail_path =
+
+; Force the addition of the specified parameters to be passed as extra parameters
+; to the sendmail binary. These parameters will always replace the value of
+; the 5th parameter to mail().
+;mail.force_extra_parameters =
+
+; Add X-PHP-Originating-Script: that will include uid of the script followed by the filename
+mail.add_x_header=Off
+
+; Use mixed LF and CRLF line separators to keep compatibility with some
+; RFC 2822 non conformant MTA.
+mail.mixed_lf_and_crlf=Off
+
+; The path to a log file that will log all mail() calls. Log entries include
+; the full path of the script, line number, To address and headers.
+;mail.log =
+; Log mail to syslog (Event Log on Windows).
+;mail.log = syslog
+
+}
+you have to replace only [mail function] block in you php.ini file with the block below
+[mail function]
+; For Win32 only.
+; https://php.net/smtp
+SMTP=smpt.gmail.com
+; https://php.net/smtp-port
+smtp_port=587
+
+; For Win32 only.
+; https://php.net/sendmail-from
+sendmail_from = yourmail@gmail.com
+
+; For Unix only.  You may supply arguments as well (default: "sendmail -t -i").
+; https://php.net/sendmail-path
+sendmail_path = "\"C:\xampp\sendmail\sendmail.exe\" -t"
+
+; Force the addition of the specified parameters to be passed as extra parameters
+; to the sendmail binary. These parameters will always replace the value of
+; the 5th parameter to mail().
+;mail.force_extra_parameters =
+
+; Add X-PHP-Originating-Script: that will include uid of the script followed by the filename
+mail.add_x_header=Off
+
+<Generate app password using google settings>
+
+
+now go to the C:\xampp\sendmail and find sendmail.ini
+<find two of these>
+[sendmail]
+
+smtp_server=smtp.gmail.com
+smtp_port=587
+smtp_ssl=tls
+
+auth_username=yourmail@gmail.com
+auth_password=your app password
+
+error_logfile=error.log
+
+
+force_sender=yourmail@gmail.com
+force_recipient=
+
+hostname=localhost
